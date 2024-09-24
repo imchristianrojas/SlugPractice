@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlugPractice</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1>Slug Practice</h1> -->
+        <!-- <img src="../imgs/slug-practice-favicon-black.png" alt="Slug Practice Logo"> -->
+        <div id="logo"><img src="{{ url_for('static', filename='imgs/slug-practice-favicon-black.png') }}" /></div>
+        
+        <!-- Home Link -->
+        <a href="#" id="homeLink" class="topLinks">Home</a>&nbsp;&nbsp;
+        <!-- Help Link -->
+        <a href="#" id="helpLink" class="topLinks">Help</a>
+
+        <div class="input-group">
+            <input type="text" id="subject" placeholder="Enter Subject">
+            <input type="text" id="prompt" placeholder="Enter an Example">
+            <!-- <input type="text" id="difficulty" placeholder="Enter Difficulty 1-10"><br> -->
+            <select id="difficulty">
+                <option value="1">Easy</option>
+                <option value="5">Medium</option>
+                <option value="10">Hard</option>
+            </select>
+            <select id="format">
+                <option value="simple">Question & Answer</option>
+                <option value="mc">Multiple Choice</option>
+                <option value="tf">True / False</option>
+            </select>
+            <div id="generate-container">
+                <button id="generate">Generate
+                    <div id="loadingSymbol">
+                        <img src="{{ url_for('static', filename='imgs/loading-style.webp') }}" alt="Loading..."
+                            width="50px" height="50px">
+                    </div>
+                </button>
+            </div>
+            <div id="loadingSymbol">
+                <img src="{{ url_for('static', filename='imgs/loading-style.webp') }}" alt="Loading...">
+            </div>
+        </div>
+        <div id="flip-cards-container"></div>
+        <div id="buttons"></div>
+
+        <!-- Modal Window -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Slug-Practice Help Documentation</h1>
+
+                <h2>Overview</h2>
+                <p style="text-align:left">Slug-Practice is an innovative tool designed to automatically create practice problems to aid in academic study. By following a few simple steps, users can generate custom flashcards tailored to specific subjects and difficulty levels.</p>
+        
+                <h2>Getting Started</h2>
+
+                <div style="text-align:left">
+        
+                <h3>Step 1: Enter Keywords</h3>
+                <p>Start by inputting a valid academic keyword along with a related example into the designated fields. This will ensure that the generated problems are relevant to the desired subject area.</p>
+        
+                <h3>Step 2: Choose Difficulty and Format</h3>
+                <p>Select your preferred difficulty level from the following options:</p>
+                <ul>
+                    <li>Easy</li>
+                    <li>Medium</li>
+                    <li>Hard</li>
+                </ul>
+                <p>Then, choose the format of the question you would like to generate:</p>
+                <ul>
+                    <li>Simple (Open-ended question)</li>
+                    <li>Multiple Choice</li>
+                    <li>True or False</li>
+                </ul>
+        
+                <h3>Step 3: Generate Flashcards</h3>
+                <p>Click the 'Generate' button to initiate the creation of your practice problems. The Language Learning Model (LLM) will process your request, which typically takes approximately 15 seconds.</p>
+        
+                <h3>Step 4: Review Flashcards</h3>
+                <p>Upon generation, the first flashcard will appear on your screen. Use the navigation buttons to move between the flashcards in your set. To view the answer to a question, simply click on the flashcard.</p>
+        
+                <h3>Step 5: Return to Front Page</h3>
+                <p>If you wish to generate a new set of flashcards or modify your selections, click the 'Home' link to return to the main page.</p>
+                </div>
+
+                <h2>Disclaimer</h2>
+                <div style="text-align:left">
+                <p>While Slug-Practice's LLM strives for high accuracy in the answers provided, it is important to verify the correctness of the content. The answers generated are based on the data available to the LLM during training, and as such, they may not always be perfect. Users are encouraged to exercise caution and double-check the answers for accuracy.</p>
+        
+                <p>For any further assistance or feedback, please contact our support team.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static',filename='script.js') }}"> </script>
+</body>
+</html>
